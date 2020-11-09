@@ -5,7 +5,7 @@ export default class About extends React.Component {
     render() {
         return (
             <div className="aboutDiv">
-                <h2>ABOUT</h2>
+                <h2 className="sectionHeader">ABOUT</h2>
                 <p>
                     Hello Helpie sends quick and easy ways for you to help out 
                     causes that you care about  straight to your inbox every 

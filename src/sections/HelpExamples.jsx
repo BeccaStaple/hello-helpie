@@ -5,7 +5,7 @@ export default class HelpExample extends React.Component {
     render() {
         return (
             <div className="toHelpExamples">
-                <h2>WAYS TO HELP</h2>
+                <h2 className="sectionHeader">WAYS TO HELP</h2>
 
                 <Grid textAlign='center' columns={3} >
                     <Grid.Row>

@@ -5,7 +5,8 @@ export default class Footer extends React.Component {
     render() {
         return (
             <div className="sign-up-div">
-                <Form>
+                <h2 className="sectionHeader">SIGN-UP FOR BI-WEEKLY EMAILS</h2>
+                <Form className="signUpForm">
                     <Form.Field>
                         <label>First Name</label>
                         <input placeholder='First Name' />
