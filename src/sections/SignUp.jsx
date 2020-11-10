@@ -67,7 +67,7 @@ export default function SignUp() {
                 <Form.Field>
                     <Checkbox label='I agree to help the world' />
                 </Form.Field>
-                <Button style={{background : loader ? "#ccc" : "rgb(2 ,2, 110)"}} type='submit'>Submit</Button>
+                <Button style={{background : loader ? "#d2d3c9" : "#16a596"}} type='submit'>Submit</Button>
             </Form>
         </div>
 
