@@ -4,33 +4,66 @@ import {db} from "../firebase"
 
 export default function SignUp() {
 
-    const [name, setName] = useState("");
+    const [firstname, setFirstname] = useState("");
     const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
-
     const [loader, setLoader] = useState(false);
 
-    const handleSumbit = (e) => {
-        e.preventDefault();
-        setLoader(true);
+    const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+    let validForm = false;
 
-        db.collection("contacts").add({
-            name : name,
-            lastname: lastname,
-            email : email
-        }).then(() => {
-            alert("you have been added to the mailing list");
-            setLoader(false);
-        }).catch((err) => {
-            alert(err.message);
-            setLoader(false);
+    const checkValid = () => {
+        let validFirstName = firstname.length < 2 && firstname.length > 0 ? false : true;
+        let validLastname = lastname.length < 2 && lastname.length > 0 ? false : true;
+        let validEmail = emailRegex.test(email) && email.length > 0 ? true : false;
 
-        });
+        if (validFirstName === false || validLastname === false) {
+            validForm = false;
+        } else if (validEmail === false) {
+            validForm = false;
+        } else {
+            validForm = true;
+        }
 
-        setName("");
-        setLastName("");
-        setEmail("");
+        console.log(validForm)
+        return validForm;
+        
+
+
     }
+
+    const handleSumbit = (e) => {
+        checkValid()
+        if (validForm === false) {
+            alert("inputs not valid");
+        } else {
+            e.preventDefault();
+
+            setLoader(true);
+    
+    
+            db.collection("contacts").add({
+                name : firstname,
+                lastname: lastname,
+                email : email
+            }).then(() => {
+                alert("you have been added to the mailing list");
+                setLoader(false);
+            }).catch((err) => {
+                alert(err.message);
+                setLoader(false);
+    
+            });
+    
+            setFirstname("");
+            setLastName("");
+            setEmail("");
+        }
+
+        
+    }
+
+    
     
 
     return (
@@ -44,8 +77,9 @@ export default function SignUp() {
                     <label>First Name</label>
                     <input 
                     placeholder='First Name' 
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
+                    required
                     />
                 </Form.Field>
                 <Form.Field>
@@ -54,6 +88,7 @@ export default function SignUp() {
                     placeholder='Last Name' 
                     value={lastname}
                     onChange={(e) => setLastName(e.target.value)}
+                    required
                     />
                 </Form.Field>
                 <Form.Field>
@@ -62,6 +97,7 @@ export default function SignUp() {
                     placeholder='Email' 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                     />
                 </Form.Field>
                 <Form.Field>
