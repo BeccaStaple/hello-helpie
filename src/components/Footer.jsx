@@ -1,6 +1,6 @@
 import React from "react"
 import {Icon} from "semantic-ui-react"
-import {goToTop} from "react-scrollable-anchor"
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 export default class Footer extends React.Component {
     render() {
@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
             <div className="footer">
                 
                 
-                
+                <AnchorLink href="#header" >
                 <Icon 
                 style={{
                     float : "right",
@@ -17,8 +17,9 @@ export default class Footer extends React.Component {
                 }} 
                 size="huge" 
                 name="arrow alternate circle up outline"
-                onClick={goToTop}
                 />
+                </AnchorLink>
+                
 
             </div>
         )
