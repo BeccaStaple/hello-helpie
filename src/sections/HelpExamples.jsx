@@ -1,5 +1,8 @@
 import React from "react"
 import { Card, Image, Icon, Grid } from "semantic-ui-react"
+import EnvImg from "./env.jpg"
+import FemImg from "./fem.png"
+import SocImg from "./social-mob.jpg"
 
 export default class HelpExample extends React.Component {
     render() {
@@ -11,7 +14,7 @@ export default class HelpExample extends React.Component {
                     <Grid.Row>
                         <Grid.Column >
                             <Card>
-                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Image src={EnvImg} wrapped ui={false} />
                                 <Card.Content>
                                     <Card.Header>Title for how to help</Card.Header>
                                     <Card.Meta>
@@ -31,7 +34,7 @@ export default class HelpExample extends React.Component {
                         </Grid.Column>
                         <Grid.Column>
                         <Card>
-                    <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                    <Image src={FemImg} wrapped ui={false} />
                     <Card.Content>
                         <Card.Header>Title for how to help</Card.Header>
                         <Card.Meta>
@@ -53,7 +56,7 @@ export default class HelpExample extends React.Component {
 
                         <Grid.Column>
                         <Card>
-                    <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                    <Image src={SocImg} wrapped ui={false} />
                     <Card.Content>
                         <Card.Header>Title for how to help</Card.Header>
                         <Card.Meta>
